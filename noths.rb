@@ -24,6 +24,10 @@ class Checkout
     @total_in_pence = @manager.calculate_discounted_price_in_pence total_price: @total_in_pence, items: items
   end
 
+  def total
+    total_in_pence / 100.00
+  end
+
   def rules
     @manager.rules
   end

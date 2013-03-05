@@ -14,7 +14,7 @@ describe Checkout do
     before { checkout.scan lavender_heart }
 
     it('adds item to basket') { checkout.items.should == [lavender_heart] }
-    it('updates the checkout total') { checkout.total_in_pence.should == 925 }
+    it('updates the checkout total') { checkout.total.should == 9.25 }
   end
 
   context 'with 3 different items exceeding 60 pounds in total' do
@@ -23,7 +23,7 @@ describe Checkout do
       checkout.scan(lavender_heart).scan(cufflinks).scan(t_shirt)
     end
 
-    it('applies a 10% discount') { checkout.total_in_pence.should == 6678 }
+    it('applies a 10% discount') { checkout.total.should == 66.78 }
   end
 
   context 'with 2 lavender hearts' do
@@ -32,7 +32,7 @@ describe Checkout do
       checkout.scan(lavender_heart).scan(t_shirt).scan(lavender_heart)
     end
 
-    it('triggers the bulk price') { checkout.total_in_pence.should == 3695 }
+    it('triggers the bulk price') { checkout.total.should == 36.95 }
   end
 
   context 'with 2 lavender hearts and over 60 pounds' do
@@ -46,7 +46,7 @@ describe Checkout do
     end
 
     it 'triggers both bulk and discount rules' do
-      checkout.total_in_pence.should == 7376
+      checkout.total.should == 73.76
     end
   end
 end
