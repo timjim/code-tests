@@ -2,7 +2,6 @@ class Checkout
   class ItemRequired < StandardError; end
 
   attr_accessor :items, :rules
-  attr_reader :promotion, :total_in_pence
 
   def initialize promotion=nil
     @items = []
