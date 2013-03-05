@@ -1,4 +1,4 @@
-Code test for Not On The High Street
+Code test: A checkout class.
 ===
 
     Product code  | Name                   | Price
